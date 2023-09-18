@@ -7,3 +7,6 @@ Welcome to ABC Electronics
 3.Exit
 ''')
 choice = int(input("Enter Your Option: "))
+if choice == 1:
+    print("Show Items!!!")
+
