@@ -104,10 +104,6 @@ class InventorySystem:
             print("Product not found with the given ID")
 
 
-
-
-
-
 # Main code
 
 inventory_system = InventorySystem(all_products)
