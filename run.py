@@ -41,4 +41,11 @@ class InventorySystem:
         print("\t3.Add Products")
         print("\t4.Exit")
         print("**************************************")
+
+    def add_product(self, prod):
+        prod.append(len(self.all_products) + 1)
+        prod.append(input("Enter the Product Name: "))
+        prod.append(int(input("Available: ")))
+        prod.append(float(input("Price: ")))  # Use float for price
+        self.all_products.append(prod)    
         
