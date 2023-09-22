@@ -26,3 +26,15 @@ class InventorySystem:
         print("SNO\tProduct\t\tIn Stock\tPrice")
         for item in self.all_products:
             print("{0}\t{1}\t{2}\t\t{3}".format(item[0], item[1], item[2], item[3]))
+
+    def banner(self):
+        print("*************************************")
+        welcome_text = pyfiglet.figlet_format("** Mobile Shop **")
+        print(welcome_text)
+        print("*************************************")
+        print("\t1.Show All Products")
+        print("\t2.Buy Product")
+        print("\t3.Add Products")
+        print("\t4.Exit")
+        print("**************************************")
+        
