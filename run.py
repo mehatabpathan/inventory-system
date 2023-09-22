@@ -45,14 +45,14 @@ class InventorySystem:
 
     def add_product(self, prod):
         prod.append(len(self.all_products) + 1)
-        prod.append(input("Enter the Product Name: "))
-        prod.append(int(input("Available: ")))
-        prod.append(float(input("Price: ")))  # Use float for price
+        prod.append(input("Enter the Product Name:\n"))
+        prod.append(int(input("Available:\n")))
+        prod.append(float(input("Price:\n")))  # Use float for price
         self.all_products.append(prod)
 
     def admin_login(self):
-        username = input("Enter Admin UserID: ")
-        password = input("Enter the Password: ")
+        username = input("Enter Admin UserID:\n")
+        password = input("Enter the Password:\n")
         if username == "Admin" and password == "password":
             prod = []
             self.add_product(prod)
@@ -115,9 +115,9 @@ while True:
         inventory_system.display_all()
 
     elif choice == 2:
-        prod_id = int(input("Enter the Product ID: "))
+        prod_id = int(input("Enter the Product ID:\n"))
         # Validate prod_id here before proceeding
-        name = input("Customer Name: ")  # Get the customer's name
+        name = input("Customer Name:\n")  # Get the customer's name
         # Adjust prod_id to match the list index (subtract 1)
         prod_id -= 1
         if 0 <= prod_id < len(inventory_system.all_products):
@@ -137,7 +137,4 @@ while True:
         welcome_text = pyfiglet.figlet_format(" GOOD BYE!! ")
         print(welcome_text)
         break
-
-
-
-
+    
