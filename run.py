@@ -15,3 +15,9 @@ SHEET = GSPREAD_CLIENT.open('products')
 productsheet = SHEET.worksheet('productsheet')
 all_products = productsheet.get_all_values()
 print(all_products)
+
+# Define a class to encapsulate functionality
+
+class InventorySystem:
+    def __init__(self, all_products):
+        self.all_products = all_products
