@@ -13,5 +13,5 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('products')
 
 productsheet = SHEET.worksheet('productsheet')
-data = productsheet.get_all_values()
-print(data)
+all_products = productsheet.get_all_values()
+print(all_products)
