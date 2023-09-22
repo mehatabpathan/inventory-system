@@ -81,4 +81,24 @@ class InventorySystem:
             if product[0] == prod_id:
                 item = product
                 break  # Exit the loop once the product is found
+
+        if item:
+            # Remove the '$' and ',' characters from the price string
+            price_str = item[3].replace('$', '').replace(',', '')
+            price = float(price_str)  # Convert the modified price string to a float
+            quantity = 1  # Assuming the quantity is 1 for a single product
+            total_cost = price * quantity
+            print("***********************************************")
+            print("\t\tClix Mobiles Shop")
+            print("***********************************************")
+            print("Bill:{} \tDate:{}".format(int(random.random() * 100000), str(datetime.now())))
+            print("Customer Name: {}".format(name))
+            print("Product Name: {}".format(item[1]))
+            print("Price per Unit: ${}".format(price))  # Display the price with '$'
+            print("Quantity: {}".format(quantity))
+            print("Total Cost: ${}".format(total_cost))  # Display the total cost with '$'
+            print("***********************************************")
+            print("\t\tTotal Bill Amount: ${}".format(total_cost))  # Display the total bill with '$'
+        else:
+            print("Product not found with the given ID")    
     
