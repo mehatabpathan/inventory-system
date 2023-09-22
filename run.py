@@ -75,3 +75,10 @@ class InventorySystem:
                 print("\t\tTotal Bill Amount: {}".format(item[3]))  # Use item[3] for price
                 break  # Exit the loop once the product is found              
         
+    def generate_bill(self, prod_id, name):
+        item = None  # Initialize item as NonE
+        for product in self.all_products:
+            if product[0] == prod_id:
+                item = product
+                break  # Exit the loop once the product is found
+    
