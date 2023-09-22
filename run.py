@@ -20,12 +20,13 @@ productsheet = SHEET.worksheet('productsheet')
 all_products = productsheet.get_all_values()
 print(all_products)
 
+
 # Define a class to encapsulate functionality
 
 class InventorySystem:
     def __init__(self, all_products):
         self.all_products = all_products
-    
+
     def display_all(self):
         print("SNO\tProduct\t\tIn Stock\tPrice")
         for item in self.all_products:
@@ -47,7 +48,7 @@ class InventorySystem:
         prod.append(input("Enter the Product Name: "))
         prod.append(int(input("Available: ")))
         prod.append(float(input("Price: ")))  # Use float for price
-        self.all_products.append(prod) 
+        self.all_products.append(prod)
 
     def admin_login(self):
         username = input("Enter Admin UserID: ")
@@ -59,7 +60,7 @@ class InventorySystem:
             productsheet.append_row(prod)  # Append the new product data
             print("Data added to the sheets")
         else:
-            print("Incorrect username and password") 
+            print("Incorrect username and password")
 
     def order_summary(self, prod_id, name):
         for item in self.all_products:
@@ -73,8 +74,8 @@ class InventorySystem:
                 print("Price: {}".format(item[3]))  # Display the product price (item[3])
                 print("***********************************************")
                 print("\t\tTotal Bill Amount: {}".format(item[3]))  # Use item[3] for price
-                break  # Exit the loop once the product is found              
-        
+                break  # Exit the loop once the product is found
+
     def generate_bill(self, prod_id, name):
         item = None  # Initialize item as NonE
         for product in self.all_products:
@@ -100,5 +101,47 @@ class InventorySystem:
             print("***********************************************")
             print("\t\tTotal Bill Amount: ${}".format(total_cost))  # Display the total bill with '$'
         else:
-            print("Product not found with the given ID")    
-    
+            print("Product not found with the given ID")
+
+
+
+
+
+
+# Main code
+
+inventory_system = InventorySystem(all_products)
+
+while True:
+    inventory_system.banner()
+    choice = int(input())
+    if choice == 1:
+        inventory_system.display_all()
+
+    elif choice == 2:
+        prod_id = int(input("Enter the Product ID: "))
+        # Validate prod_id here before proceeding
+        name = input("Customer Name: ")  # Get the customer's name
+        # Adjust prod_id to match the list index (subtract 1)
+        prod_id -= 1
+        if 0 <= prod_id < len(inventory_system.all_products):
+            inventory_system.order_summary(inventory_system.all_products[prod_id][0], name)  # Pass the product ID as an argument
+            cnf = input("Confirm the Order (Y/N)")
+            if cnf == 'Y':
+                inventory_system.generate_bill(inventory_system.all_products[prod_id][0], name)  # Pass the product ID as an argument
+                print("Thanks For shopping with Us")
+                sys.exit(0)
+            else:
+                print("Continue Exploring the shop")
+        else:
+            print("Product not found with the given ID")
+    elif choice == 3:
+        inventory_system.admin_login()
+    else:
+        welcome_text = pyfiglet.figlet_format(" GOOD BYE!! ")
+        print(welcome_text)
+        break
+
+
+
+
