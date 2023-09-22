@@ -59,5 +59,19 @@ class InventorySystem:
             productsheet.append_row(prod)  # Append the new product data
             print("Data added to the sheets")
         else:
-            print("Incorrect username and password")       
+            print("Incorrect username and password") 
+
+    def order_summary(self, prod_id, name):
+        for item in self.all_products:
+            if item[0] == prod_id:
+                print("***********************************************")
+                print("\t\tClix Mobiles Shop")
+                print("***********************************************")
+                print("Order Summary\tDate:{}".format(str(datetime.now())))
+                print("Customer Name: {}".format(name))
+                print("Product Name: {}".format(item[1]))  # Display the product name (item[1])
+                print("Price: {}".format(item[3]))  # Display the product price (item[3])
+                print("***********************************************")
+                print("\t\tTotal Bill Amount: {}".format(item[3]))  # Use item[3] for price
+                break  # Exit the loop once the product is found              
         
