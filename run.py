@@ -47,5 +47,17 @@ class InventorySystem:
         prod.append(input("Enter the Product Name: "))
         prod.append(int(input("Available: ")))
         prod.append(float(input("Price: ")))  # Use float for price
-        self.all_products.append(prod)    
+        self.all_products.append(prod) 
+
+    def admin_login(self):
+        username = input("Enter Admin UserID: ")
+        password = input("Enter the Password: ")
+        if username == "Admin" and password == "password":
+            prod = []
+            self.add_product(prod)
+            productsheet = SHEET.worksheet('productsheet')
+            productsheet.append_row(prod)  # Append the new product data
+            print("Data added to the sheets")
+        else:
+            print("Incorrect username and password")       
         
