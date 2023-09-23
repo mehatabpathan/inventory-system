@@ -40,7 +40,8 @@ class InventorySystem:
 
     def banner(self):
         print("*************************************")
-        welcome_text = pyfiglet.figlet_format("** Mobile Shop **")
+        welcome_text = print(pyfiglet.figlet_format(
+            "WELCOME TO MOBILE SHOP", justify="center", width=80))
         print(welcome_text)
         print("*************************************")
         print("\t1.Show All Products")
@@ -150,7 +151,6 @@ while choice != 4:
             print("Invalid choice. Please select a valid option.")
     except ValueError:
         print("Invalid input. Please enter a valid integer choice.")
-        continue  # Restart the loop to ask for input again
     except KeyboardInterrupt:
         print("Program terminated by the user.")
         sys.exit(0)
