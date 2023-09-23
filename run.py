@@ -114,12 +114,11 @@ class InventorySystem:
 
 inventory_system = InventorySystem(all_products)
 
-# ...
-
 choice = 0  # Initialize choice to 0 before the loop
 while choice != 4:
     inventory_system.banner()
     choice_input = input("Enter your choice: ")
+    
     try:
         choice = int(choice_input)
         
@@ -138,6 +137,8 @@ while choice != 4:
                 if cnf == 'Y':
                     inventory_system.generate_bill(inventory_system.all_products[prod_id][0], name)  # Pass the product ID as an argument
                     print("Thanks For shopping with Us")
+                else:
+                    print("Continue Exploring the shop")
             else:
                 print("Product not found with the given ID")
         elif choice == 3:
@@ -149,6 +150,7 @@ while choice != 4:
             print("Invalid choice. Please select a valid option.")
     except ValueError:
         print("Invalid input. Please enter a valid integer choice.")
+        continue  # Restart the loop to ask for input again
     except KeyboardInterrupt:
         print("Program terminated by the user.")
         sys.exit(0)
