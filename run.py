@@ -11,13 +11,16 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-CREDS = Credentials.from_service_account_file('creds.json')
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('products')
-
-productsheet = SHEET.worksheet('productsheet')
-all_products = productsheet.get_all_values()
+try:
+    CREDS = Credentials.from_service_account_file('creds.json')
+    SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+    GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+    SHEET = GSPREAD_CLIENT.open('products')
+    productsheet = SHEET.worksheet('productsheet')
+    all_products = productsheet.get_all_values()
+except Exception as e:
+    print("Error: Unable to access Google Sheets:", str(e))
+    sys.exit(1)
 print(all_products)
 
 
@@ -29,8 +32,11 @@ class InventorySystem:
 
     def display_all(self):
         print("SNO\tProduct\t\tIn Stock\tPrice")
-        for item in self.all_products:
-            print("{0}\t{1}\t{2}\t\t{3}".format(item[0], item[1], item[2], item[3]))
+        if not self.all_products:
+            print("No products available.")
+        else:
+            for index, item in enumerate(self.all_products, start=1):
+                print("{0}\t{1}\t{2}\t\t{3}".format(index, item[1], item[2], item[3]))
 
     def banner(self):
         print("*************************************")
@@ -108,33 +114,43 @@ class InventorySystem:
 
 inventory_system = InventorySystem(all_products)
 
-while True:
-    inventory_system.banner()
-    choice = int(input())
-    if choice == 1:
-        inventory_system.display_all()
+# ...
 
-    elif choice == 2:
-        prod_id = int(input("Enter the Product ID:\n"))
-        # Validate prod_id here before proceeding
-        name = input("Customer Name:\n")  # Get the customer's name
-        # Adjust prod_id to match the list index (subtract 1)
-        prod_id -= 1
-        if 0 <= prod_id < len(inventory_system.all_products):
-            inventory_system.order_summary(inventory_system.all_products[prod_id][0], name)  # Pass the product ID as an argument
-            cnf = input("Confirm the Order (Y/N)")
-            if cnf == 'Y':
-                inventory_system.generate_bill(inventory_system.all_products[prod_id][0], name)  # Pass the product ID as an argument
-                print("Thanks For shopping with Us")
-                sys.exit(0)
+choice = 0  # Initialize choice to 0 before the loop
+while choice != 4:
+    inventory_system.banner()
+    choice_input = input("Enter your choice: ")
+    try:
+        choice = int(choice_input)
+        
+        if choice == 1:
+            inventory_system.display_all()
+            input("Press Enter to continue...")
+        elif choice == 2:
+            prod_id = int(input("Enter the Product ID:\n"))
+            # Validate prod_id here before proceeding
+            name = input("Customer Name:\n")  # Get the customer's name
+            # Adjust prod_id to match the list index (subtract 1)
+            prod_id -= 1
+            if 0 <= prod_id < len(inventory_system.all_products):
+                inventory_system.order_summary(inventory_system.all_products[prod_id][0], name)  # Pass the product ID as an argument
+                cnf = input("Confirm the Order (Y/N)")
+                if cnf == 'Y':
+                    inventory_system.generate_bill(inventory_system.all_products[prod_id][0], name)  # Pass the product ID as an argument
+                    print("Thanks For shopping with Us")
             else:
-                print("Continue Exploring the shop")
+                print("Product not found with the given ID")
+        elif choice == 3:
+            inventory_system.admin_login()
+        elif choice == 4:
+            welcome_text = pyfiglet.figlet_format(" GOOD BYE!! ")
+            print(welcome_text)
         else:
-            print("Product not found with the given ID")
-    elif choice == 3:
-        inventory_system.admin_login()
-    else:
-        welcome_text = pyfiglet.figlet_format(" GOOD BYE!! ")
-        print(welcome_text)
-        break
-    
+            print("Invalid choice. Please select a valid option.")
+    except ValueError:
+        print("Invalid input. Please enter a valid integer choice.")
+    except KeyboardInterrupt:
+        print("Program terminated by the user.")
+        sys.exit(0)
+    except Exception as e:
+        print("An error occurred:", str(e))
