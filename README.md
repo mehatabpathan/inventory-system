@@ -1,9 +1,7 @@
 # Inventory-System
-Word-Py is a simple word guessing game that is based on the same idea as the popular game "Wordle". The user must guess the random 5 letter word within 6 tries and they will be given hints as they play. The user must guess carefully as their guess needs to be an actual word within the Oxford English Dictionary!
+This inventory system manages product data, provides a user-friendly interface, and integrates with Google Sheets for data storage and retrieval. Users can view, purchase, and add products to the inventory system, while admin users have the additional privilege of adding new products.
 
-The game is a mixture of luck and logic. Not only does it allow the user to improve their problem solving and vocabulary skills but also gives them five minutes "timeout" in their busy day.  
-
-The live link can be found here - [Word-Py](https://word-py.herokuapp.com/)
+The live link can be found here - [Inventory-system](https://inventory-system1-f97d13a346ff.herokuapp.com/)
 
 ![Site Mockup](docs/readme_images/web_mockup.png)
 

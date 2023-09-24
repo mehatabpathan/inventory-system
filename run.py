@@ -10,7 +10,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
 ]
-4
+
 try:
     CREDS = Credentials.from_service_account_file('creds.json')
     SCOPED_CREDS = CREDS.with_scopes(SCOPE)
@@ -83,7 +83,7 @@ class InventorySystem:
                 break  # Exit the loop once the product is found
 
     def generate_bill(self, prod_id, name):
-        item = None  # Initialize item as NonE
+        item = None   # Initialize item as NonE
         for product in self.all_products:
             if product[0] == prod_id:
                 item = product
@@ -111,10 +111,7 @@ class InventorySystem:
 
 
 # Main code
-
 inventory_system = InventorySystem(all_products)
-
-# ...
 
 choice = 0  # Initialize choice to 0 before the loop
 while choice != 4:
