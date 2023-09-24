@@ -10,7 +10,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
 ]
-
+4
 try:
     CREDS = Credentials.from_service_account_file('creds.json')
     SCOPED_CREDS = CREDS.with_scopes(SCOPE)
@@ -18,15 +18,6 @@ try:
     SHEET = GSPREAD_CLIENT.open('products')
     productsheet = SHEET.worksheet('productsheet')
     all_products = productsheet.get_all_values()
-except gspread.exceptions.SpreadsheetNotFound as e:
-    print("Error: Google Sheets not found:", str(e))
-    sys.exit(1)
-except gspread.exceptions.AuthenticationError as e:
-    print("Error: Authentication failed. Check your credentials:", str(e))
-    sys.exit(1)
-except gspread.exceptions.APIError as e:
-    print("Error: There was an issue with the Google Sheets API:", str(e))
-    sys.exit(1)
 except Exception as e:
     print("Error: Unable to access Google Sheets:", str(e))
     sys.exit(1)
@@ -49,8 +40,7 @@ class InventorySystem:
 
     def banner(self):
         print("*************************************")
-        welcome_text = print(pyfiglet.figlet_format(
-            "WELCOME TO MOBILE SHOP", justify="center", width=80))
+        welcome_text = pyfiglet.figlet_format("** Mobile Shop **")
         print(welcome_text)
         print("*************************************")
         print("\t1.Show All Products")
@@ -62,28 +52,8 @@ class InventorySystem:
     def add_product(self, prod):
         prod.append(len(self.all_products) + 1)
         prod.append(input("Enter the Product Name:\n"))
-    
-        while True:
-            try:
-                available_quantity = int(input("Available quantity:\n"))
-                if available_quantity < 0:
-                    raise ValueError("Quantity should be a positive integer.")
-                    break  # Break the loop if input is valid
-            except ValueError:
-                print("Invalid input. Please enter a valid positive integer for quantity.")
-    
-        prod.append(available_quantity)
-    
-        while True:
-            try:
-                price = float(input("Price (e.g., 10.99):\n"))
-                if price <= 0:
-                    raise ValueError("Price should be a positive number.")
-                    break  # Break the loop if input is valid
-            except ValueError:
-                print("Invalid input. Please enter a valid positive number for price.")
-    
-        prod.append(price)  # Use float for price
+        prod.append(int(input("Available:\n")))
+        prod.append(float(input("Price:\n")))  # Use float for price
         self.all_products.append(prod)
 
     def admin_login(self):
@@ -97,28 +67,6 @@ class InventorySystem:
             print("Data added to the sheets")
         else:
             print("Incorrect username and password")
-
-    def buy_product(self):
-        try:
-            prod_id = int(input("Enter the Product ID:\n"))
-
-            # Check if prod_id is within a valid range
-            if prod_id <= 0 or prod_id > len(self.all_products):
-                raise ValueError("Invalid product ID. Please enter a valid ID.")
-
-            name = input("Customer Name:\n")  # Get the customer's name
-            # Adjust prod_id to match the list index (subtract 1)
-            prod_id -= 1
-
-            # Now, you can safely access self.all_products[prod_id] because you know prod_id is within a valid range
-            item = self.all_products[prod_id]
-        except ValueError as ve:
-            print("Error:", str(ve))
-        except KeyboardInterrupt:
-            print("Program terminated by the user.")
-            sys.exit(0)
-        except Exception as e:
-            print("An error occurred:", str(e))
 
     def order_summary(self, prod_id, name):
         for item in self.all_products:
@@ -166,11 +114,12 @@ class InventorySystem:
 
 inventory_system = InventorySystem(all_products)
 
+# ...
+
 choice = 0  # Initialize choice to 0 before the loop
 while choice != 4:
     inventory_system.banner()
     choice_input = input("Enter your choice: ")
-    
     try:
         choice = int(choice_input)
         
@@ -189,8 +138,6 @@ while choice != 4:
                 if cnf == 'Y':
                     inventory_system.generate_bill(inventory_system.all_products[prod_id][0], name)  # Pass the product ID as an argument
                     print("Thanks For shopping with Us")
-                else:
-                    print("Continue Exploring the shop")
             else:
                 print("Product not found with the given ID")
         elif choice == 3:
