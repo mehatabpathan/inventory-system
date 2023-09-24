@@ -18,6 +18,15 @@ try:
     SHEET = GSPREAD_CLIENT.open('products')
     productsheet = SHEET.worksheet('productsheet')
     all_products = productsheet.get_all_values()
+except gspread.exceptions.SpreadsheetNotFound as e:
+    print("Error: Google Sheets not found:", str(e))
+    sys.exit(1)
+except gspread.exceptions.AuthenticationError as e:
+    print("Error: Authentication failed. Check your credentials:", str(e))
+    sys.exit(1)
+except gspread.exceptions.APIError as e:
+    print("Error: There was an issue with the Google Sheets API:", str(e))
+    sys.exit(1)
 except Exception as e:
     print("Error: Unable to access Google Sheets:", str(e))
     sys.exit(1)

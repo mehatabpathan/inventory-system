@@ -1,4 +1,4 @@
-# Word-Py
+# Inventory-System
 Word-Py is a simple word guessing game that is based on the same idea as the popular game "Wordle". The user must guess the random 5 letter word within 6 tries and they will be given hints as they play. The user must guess carefully as their guess needs to be an actual word within the Oxford English Dictionary!
 
 The game is a mixture of luck and logic. Not only does it allow the user to improve their problem solving and vocabulary skills but also gives them five minutes "timeout" in their busy day.  
@@ -233,14 +233,10 @@ The README.md was passed through Grammarly and all links were checked before fin
 ### Python Libraries:
 
 - [random](https://docs.python.org/3/library/random.html?highlight=random#module-random) - `random.choice` is used to select a random word for the game from a text file.
-- [os](https://docs.python.org/3/library/os.html?highlight=os#module-os) 
-  - `os.system` is used in order to clear the terminal when beginning a new game.
-  - `os.environ` is used to get Oxford API credentials from environment variables (defined in env.py).
 - [datetime](https://pypi.org/project/DateTime/): used to get today's date for the leaderboard entry.
 - [gspread](https://pypi.org/project/gspread/): to allow communication with Google Sheets. 
 - [requests](https://pypi.org/project/requests): enables data retrieval from APIs.
-- [google.oauth2.service_account](https://google-auth.readthedocs.io/en/stable/index.html):  used to validate credentials and grant access to google service accounts.
-- [pandas](https://pypi.org/project/pandas/) - used for sorting and displaying leaderboard data in user-friendly format.  
+- [google.oauth2.service_account](https://google-auth.readthedocs.io/en/stable/index.html):  used to validate credentials and grant access to google service accounts.  
 - [pyfiglet](https://pypi.org/project/pyfiglet/0.7/) - for taking ASCII text and rendering it into ASCII art fonts.
 - [colorama](https://pypi.org/project/colorama/) - for adding colour to terminal text.
 
