@@ -40,8 +40,9 @@ class InventorySystem:
 
     def banner(self):
         print("*************************************")
-        welcome_text = pyfiglet.figlet_format("** Mobile Shop **")
-        print(welcome_text)
+        print(pyfiglet.figlet_format(
+            "WELCOME TO MOBILE SHOP", justify="center", width=80))
+    
         print("*************************************")
         print("\t1.Show All Products")
         print("\t2.Buy Product")
