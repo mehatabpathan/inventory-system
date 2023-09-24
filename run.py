@@ -62,8 +62,28 @@ class InventorySystem:
     def add_product(self, prod):
         prod.append(len(self.all_products) + 1)
         prod.append(input("Enter the Product Name:\n"))
-        prod.append(int(input("Available:\n")))
-        prod.append(float(input("Price:\n")))  # Use float for price
+    
+        while True:
+            try:
+                available_quantity = int(input("Available quantity:\n"))
+                if available_quantity < 0:
+                    raise ValueError("Quantity should be a positive integer.")
+                    break  # Break the loop if input is valid
+            except ValueError:
+                print("Invalid input. Please enter a valid positive integer for quantity.")
+    
+        prod.append(available_quantity)
+    
+        while True:
+            try:
+                price = float(input("Price (e.g., 10.99):\n"))
+                if price <= 0:
+                    raise ValueError("Price should be a positive number.")
+                    break  # Break the loop if input is valid
+            except ValueError:
+                print("Invalid input. Please enter a valid positive number for price.")
+    
+        prod.append(price)  # Use float for price
         self.all_products.append(prod)
 
     def admin_login(self):
@@ -77,6 +97,28 @@ class InventorySystem:
             print("Data added to the sheets")
         else:
             print("Incorrect username and password")
+
+    def buy_product(self):
+        try:
+            prod_id = int(input("Enter the Product ID:\n"))
+
+            # Check if prod_id is within a valid range
+            if prod_id <= 0 or prod_id > len(self.all_products):
+                raise ValueError("Invalid product ID. Please enter a valid ID.")
+
+            name = input("Customer Name:\n")  # Get the customer's name
+            # Adjust prod_id to match the list index (subtract 1)
+            prod_id -= 1
+
+            # Now, you can safely access self.all_products[prod_id] because you know prod_id is within a valid range
+            item = self.all_products[prod_id]
+        except ValueError as ve:
+            print("Error:", str(ve))
+        except KeyboardInterrupt:
+            print("Program terminated by the user.")
+            sys.exit(0)
+        except Exception as e:
+            print("An error occurred:", str(e))
 
     def order_summary(self, prod_id, name):
         for item in self.all_products:
