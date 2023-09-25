@@ -47,7 +47,11 @@ It also allowed me to identify the different Objects I would need to implement. 
 
 As the flow chart was created at the outset of the project, it does not fully reflect all elements of the game.
 
-![Flow Chart](docs/readme_images/flow_chart.png)
+## Flow Chart
+
+<details><summary>Screenshots</summary>
+<img src="images/flowchart.png">
+</details>
 
 ## Features
 
