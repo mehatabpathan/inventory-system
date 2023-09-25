@@ -71,6 +71,23 @@ In order to visualise the flow of steps required in the game, I created a flow c
 It also allowed me to identify the different Objects I would need to implement. I was keen to use the principles of Object Oriented Programming in this appl
 ication.
 
+### Google Sheet
+- The table you provided displays information about various products. Here's an explanation of each column:
+ - Product ID: This is a unique identifier for each product. It's a number that distinguishes one product from another.
+ - Product Name: This column lists the names of the products. Each product has a different name to identify what it is.
+ - In Stock Quantity: This column indicates how many units of each product are currently available in stock. It tells you how many of each product you have on hand.
+ - Price per Unit: This column shows the cost of one unit of each product. The prices are listed in dollars ($).
+ - Total Value: This column is meant to show the total value of the product in stock. It's calculated by multiplying the "In Stock Quantity" by the "Price per Unit." However, there are some missing or incomplete values in this column in your provided data for products with Product IDs 9, 10, and 11.
+
+ <details><summary>Screenshots</summary>
+ <img src="images/googlesheets.png">
+ </details>
+
+ - Credentials were generated and provided to allow access from the project to Google Sheets. These were added to the cred.json in the .gitignore file to ensure they weren't pushed to my Github repository. They also had to be added to the Config Vars on Heroku to ensure they could be accessed when running the game. 
+
+
+
+
 
 ## Manual Testing
 
