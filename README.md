@@ -72,7 +72,8 @@ It also allowed me to identify the different Objects I would need to implement. 
 ication.
 
 
-## Testing
+## Manual Testing
+
 ### Testing Invalid Data
 
  - when I give invalid data like string or symbols it should show invalid data.
@@ -100,13 +101,18 @@ ication.
 ### PEP8 Testing
 The python files have all been passed through [PEP8 Online](http://pep8online.com/). All python files were checked with no errors reported. See screen show below:
 
-<details>
 <details><summary>Screenshots run.py</summary>
 <img src="images/pep8checker.png">
 </details>
 
-
-
+ ### Bugs
+| **Bug**                                                                                                         | **Fix**                                                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Couldn't connect function levels() to the game() function to upload difficulty level across game| Redo whole function levels() with changed whileloop|                                                                                                                    
+| Poor visual presentation of the game   | Introduced colorama and add spacing to the print statements across the game       |
+| Too long lines during code                   | Run and formatted code through black.vercel.app                              |
+| Game worked locally but not on Heroku app                   |  Created new excell sheet with new credentials and repeated process of connecting APIs, googleshet, heroku                           |
+                                                                      
 
 ## Libraries and Technologies Used
 
@@ -136,6 +142,14 @@ After some research, I realised that the colours would only print out as a strin
 
 ## Deployment
 
+### Gitpod and git
+ -  I created a repository in Github, named it Portafolio-3, and used the template Code-Institute-org/python-essentials-template
+ -  Once the repository is created, click the green button to the right (Gitpod) to open Gitpod
+ -  In the terminal, I've used the python3 run.py file provided by the template
+ - At regular appropriate intervals the latest version of the code was saved via the git add and git commit commands. Appropriate commit messages were added to control the revisions.
+- The git push command was used to push all committed code and documentation to the repository for secure storage.
+ 
+### Heroku
 The site was deployed via [Heroku](https://dashboard.heroku.com/apps), and the live link can be found here: [Inventory-system](https://inventory-system1-f97d13a346ff.herokuapp.com/)
 
 Before deploying to Heroku pip3 freeze > requirements.txt was used to add all the dependencies required to the requirements.txt file. This is required for the game to run on Heroku.
