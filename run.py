@@ -150,7 +150,7 @@ while choice != 4:
             name = input("Customer Name:\n")  # Get the customer's name
             # Adjust prod_id to match the list index (subtract 1)
             prod_id -= 1
-            if 0 <= prod_id < len(inventory_system.all_products):
+            if 1 <= prod_id < len(inventory_system.all_products):
                 inventory_system.order_summary(
                     inventory_system.all_products[prod_id][0], name
                 )  # Pass the product ID as an argument

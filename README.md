@@ -3,8 +3,6 @@ This inventory system manages product data, provides a user-friendly interface, 
 
 The live link can be found here - [Inventory-system](https://inventory-system1-f97d13a346ff.herokuapp.com/)
 
-![Site Mockup](docs/readme_images/web_mockup.png)
-
 ## How to Play
  # Display All Products (Option 1):
   - When you run the program, you'll see a menu with options.
