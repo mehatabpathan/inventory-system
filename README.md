@@ -116,23 +116,28 @@ The python files have all been passed through [PEP8 Online](http://pep8online.co
 
 ## Libraries and Technologies Used
 
-### Python Libraries:
 
-- [random](https://docs.python.org/3/library/random.html?highlight=random#module-random) - `random.choice` is used to select a random word for the game from a text file.
-- [datetime](https://pypi.org/project/DateTime/): used to get today's date for the leaderboard entry.
-- [gspread](https://pypi.org/project/gspread/): to allow communication with Google Sheets. 
-- [requests](https://pypi.org/project/requests): enables data retrieval from APIs.
-- [google.oauth2.service_account](https://google-auth.readthedocs.io/en/stable/index.html):  used to validate credentials and grant access to google service accounts.  
-- [pyfiglet](https://pypi.org/project/pyfiglet/0.7/) - for taking ASCII text and rendering it into ASCII art fonts.
-- [colorama](https://pypi.org/project/colorama/) - for adding colour to terminal text.
+- #### Languages:
 
-### Programs Used
+   - Phyton
 
-- [GitHub](https://github.com/) - used for version control.
-- [Heroku](https://dashboard.heroku.com/apps) -  used to deploy the live project.
-- [Lucidchart](https://lucid.app/documents#/dashboard) -  used to create the game flowchart
-- [PEP8 Online](http://pep8online.com/) - used to validate all the Python code
-- [Grammerly](https://app.grammarly.com/) - used to proof read the README.md
+- ### Python Libraries:
+
+  - [random](https://docs.python.org/3/library/random.html?highlight=random#module-random) - `random.choice` is used to select a random word for the game from a text file.
+  - [datetime](https://pypi.org/project/DateTime/): used to get today's date for the leaderboard entry.
+  - [gspread](https://pypi.org/project/gspread/): to allow communication with Google Sheets. 
+  - [requests](https://pypi.org/project/requests): enables data retrieval from APIs.
+  - [google.oauth2.service_account](https://google-auth.readthedocs.io/en/stable/index.html):  used to validate credentials and grant access to google service accounts.  
+  - [pyfiglet](https://pypi.org/project/pyfiglet/0.7/) - for taking ASCII text and rendering it into ASCII art fonts.
+  - [colorama](https://pypi.org/project/colorama/) - for adding colour to terminal text.
+
+- ### Programs Used
+
+  - [GitHub](https://github.com/) - used for version control.
+  - [Heroku](https://dashboard.heroku.com/apps) -  used to deploy the live project.
+  - [Lucidchart](https://lucid.app/documents#/dashboard) -  used to create the game flowchart
+  - [PEP8 Online](http://pep8online.com/) - used to validate all the Python code
+
 
 
 ### Colour Coding Letters in User Guess
