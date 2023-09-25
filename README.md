@@ -72,7 +72,7 @@ It also allowed me to identify the different Objects I would need to implement. 
 ication.
 
 ### Google Sheet
-- The table you provided displays information about various products. Here's an explanation of each column:
+- The table I provided displays information about various products. Here's an explanation of each column:
  - Product ID: This is a unique identifier for each product. It's a number that distinguishes one product from another.
  - Product Name: This column lists the names of the products. Each product has a different name to identify what it is.
  - In Stock Quantity: This column indicates how many units of each product are currently available in stock. It tells you how many of each product you have on hand.
@@ -84,9 +84,6 @@ ication.
  </details>
 
  - Credentials were generated and provided to allow access from the project to Google Sheets. These were added to the cred.json in the .gitignore file to ensure they weren't pushed to my Github repository. They also had to be added to the Config Vars on Heroku to ensure they could be accessed when running the game. 
-
-
-
 
 
 ## Manual Testing
@@ -133,10 +130,9 @@ The python files have all been passed through [PEP8 Online](http://pep8online.co
 
 ## Libraries and Technologies Used
 
-
 - #### Languages:
 
-   - Phyton
+ - Phyton
 
 - ### Python Libraries:
 
@@ -155,12 +151,6 @@ The python files have all been passed through [PEP8 Online](http://pep8online.co
   - [Lucidchart](https://lucid.app/documents#/dashboard) -  used to create the game flowchart
   - [PEP8 Online](http://pep8online.com/) - used to validate all the Python code
 
-
-
-### Colour Coding Letters in User Guess
-Colorama is used to add the colour coding to each of the letters in the user guess. Each time a user makes a guess, that colour coded guess is added to the `guesses_list` so that all their guesses can be printed back to them after each turn. When I initially wrote the code to print out the user `guesses_list`, the colours were not printing out and the Colorama encoding was being printed out alongside the user guess, making it impossible to read.
-
-After some research, I realised that the colours would only print out as a string (not a list). In order to overcome this problem, I used a `for` loop to print out each string in the `guesses_list` separately. 
 
 ## Deployment
 
