@@ -3,6 +3,10 @@ This inventory system manages product data, provides a user-friendly interface, 
 
 The live link can be found here - [Inventory-system](https://inventory-system1-f97d13a346ff.herokuapp.com/)
 
+![Static Badge](https://img.shields.io/badge/Last_Commit-September-red)
+![Static Badge](https://img.shields.io/badge/Contributors-1-blue)
+![Static Badge](https://img.shields.io/badge/Languages-1-greens)
+
 ## How to Play
  # Display All Products (Option 1):
   - When you run the program, you'll see a menu with options.
@@ -64,10 +68,34 @@ The live link can be found here - [Inventory-system](https://inventory-system1-f
 
 In order to visualise the flow of steps required in the game, I created a flow chart using Lucid Chart. It was beneficial for me to plan the project like this as it allowed me to gain an understanding of what functions were required for the game and at what stages and how the different elements of the game would interact.
 
-It also allowed me to identify the different Objects I would need to implement. I was keen to use the principles of Object Oriented Programming in this application.
+It also allowed me to identify the different Objects I would need to implement. I was keen to use the principles of Object Oriented Programming in this appl
+ication.
 
 
 ## Testing
+### Testing Invalid Data
+
+ - when I give invalid data like string or symbols it should show invalid data.
+
+| **Feature**  | **Action**                  | **Expected Result**                                          | **Actual Result** |
+| ------------ | --------------------------- | ------------------------------------------------------------ | ----------------- |
+| Welcome screen | entering r | it shows invalid data | It works as expected |
+
+<details><summary>Screenshots</summary>
+<img src="images/invalid-input.png">
+</details>
+
+### Testing Admin Credientials
+
+ - when I give wrong login id and password it should show invalid data.
+
+| **Feature**  | **Action**                  | **Expected Result**                                          | **Actual Result** |
+| ------------ | --------------------------- | ------------------------------------------------------------ | ----------------- |
+| Welcome screen | entering r | it shows incorrect  data | It works as expected |
+
+<details><summary>Screenshots</summary>
+<img src="images/invalid-admin-credientials.png">
+</details>
 
 ### PEP8 Testing
 The python files have all been passed through [PEP8 Online](http://pep8online.com/). All python files were checked with no errors reported. See screen show below:
@@ -108,7 +136,7 @@ After some research, I realised that the colours would only print out as a strin
 
 ## Deployment
 
-The site was deployed via [Heroku](https://dashboard.heroku.com/apps), and the live link can be found here: [Word-Py](https://word-py.herokuapp.com/)
+The site was deployed via [Heroku](https://dashboard.heroku.com/apps), and the live link can be found here: [Inventory-system](https://inventory-system1-f97d13a346ff.herokuapp.com/)
 
 Before deploying to Heroku pip3 freeze > requirements.txt was used to add all the dependencies required to the requirements.txt file. This is required for the game to run on Heroku.
 
@@ -138,17 +166,17 @@ The site is now live and operational.
 ### Resources Used
 - [W3Schools](https://www.w3schools.com/)  
 - [Stack Overflow](https://stackoverflow.com/)
-- [5 Letter Words List](https://7esl.com/5-letter-words/) - The list of five-letter words used in the game was taken from this site.
-- [Count occurrences of a character in a string](https://stackoverflow.com/questions/1155617/count-the-number-of-occurrences-of-a-character-in-a-string) - I read about the Collections Counter method in this post.
 - [How to set up environment variables in GitPod](https://code-institute-room.slack.com/archives/CP07TN38Q/p1576743956008500) - This post from anna_ci in the Code Institute slack channel was very informative and enabled me to set up my environment variables correctly for my API key. 
-- [ASCII Art](https://www.asciiart.eu/art-and-design/borders) - I used this ASCII art for the border around the instructions.
-- [How to get current date and time in Python](https://www.programiz.com/python-programming/datetime/current-datetime) - I used this article to learn about the strftime() method when getting the date for my leaderboard.
-- [Pandas Sort: Your Guide to Sorting Data in Python](https://realpython.com/pandas-sort-python/) - I used this article to learn how to sort the leaderboard data for the table.
-- [Center align column headers of a Pandas DataFrame](https://www.tutorialspoint.com/python-center-align-column-headers-of-a-pandas-dataframe) - I used this article when formating the leaderboard table.
-- [Oxford Dictionary API Docs](https://developer.oxforddictionaries.com/documentation/getting_started) - This documentation came in useful when implementing the Oxford Dictionary API.
+- [How to get current date and time in Python](https://www.programiz.com/python-programming/datetime/current-datetime) - I used this article to learn about the strftime() 
 - I followed the steps in the Code Institute Python walkthrough project - Love Sandwiches when setting up my Google Sheets API.
+- Shields.io badges were created for readme.md file using the markup code from:
+<https://shields.io/badges>
 
 
 ## Acknowledgments
 
-The Code Institute slack community for their quick responses and very helpful feedback!
+I'd like to acknowledge the following people for helping me build this website.
+
+- For my mentor, AntonioRodriquez for guiding me and helping me to improve elements of the site to make it more user friendly.
+- For my tutor, Ed who helped me in the GitHub issue.
+- For my Facilitator, Marko Tot who guided me with all the presentations that helped me to finish this project.
