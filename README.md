@@ -27,8 +27,16 @@ The live link can be found here - [Inventory-system](https://inventory-system1-f
   - You'll need to enter an admin username and password. The default values are "Admin" and "password."
   - After logging in, you can add new products by entering their name, stock availability, and price.
 
+  <details><summary>Screenshots</summary>
+<img src="images/addingproducts.png">
+</details>
+
  # Exit (Option 4):
   - Choose option 4 to exit the program.
+
+<details><summary>Screenshots</summary>
+<img src="images/goodbye.png">
+</details>
 
 
 
@@ -65,21 +73,8 @@ It also allowed me to identify the different Objects I would need to implement. 
 The python files have all been passed through [PEP8 Online](http://pep8online.com/). All python files were checked with no errors reported. See screen show below:
 
 <details>
-  <summary>run.py</summary>
-
-  ![Run](docs/readme_images/pep8_run.png)
-</details>
-
-<details>
-  <summary>word_checker.py</summary>
-
-  ![WordChecker](docs/readme_images/pep8_wordchecker.png)
-</details>
-
-<details>
-  <summary>oxford_api.py</summary>
-
-  ![OxfordAPI](docs/readme_images/pep8_oxford_api.png)
+<details><summary>Screenshots run.py</summary>
+<img src="images/pep8checker.png">
 </details>
 
 ### Input Testing
