@@ -8,11 +8,19 @@ The live link can be found here - [Inventory-system](https://inventory-system1-f
   - When you run the program, you'll see a menu with options.
   - Choose option 1 to display all available products. It will show a list of products with their names, stock availability, and prices.
 
+<details><summary>Screenshots</summary>
+<img src="images/showallproducts.png">
+</details>
+
  # Buy Product (Option 2): 
   - Choose option 2 to buy a product.
   - You'll be prompted to enter the product ID and your name.
   - The program will generate an order summary and ask for confirmation.
   - If you confirm the order, it will generate a bill for the product.
+
+<details><summary>Screenshots</summary>
+<img src="images/buyproducts.png">
+</details>
 
  # Add Products (Admin Login Required, Option 3):
   - Choose option 3 to add products (requires admin login).
@@ -40,143 +48,16 @@ The live link can be found here - [Inventory-system](https://inventory-system1-f
   - As an administrator, I want to set user roles and permissions to control who can add, edit, or delete products, ensuring data integrity and security.
 
 
-## Logic Flow
-In order to visualise the flow of steps required in the game, I created a flow chart using Lucid Chart. It was beneficial for me to plan the project like this as it allowed me to gain an understanding of what functions were required for the game and at what stages and how the different elements of the game would interact.
-
-It also allowed me to identify the different Objects I would need to implement. I was keen to use the principles of Object Oriented Programming in this application.
-
-As the flow chart was created at the outset of the project, it does not fully reflect all elements of the game.
-
 ## Flow Chart
 
 <details><summary>Screenshots</summary>
 <img src="images/flowchart.png">
 </details>
 
-## Features
+In order to visualise the flow of steps required in the game, I created a flow chart using Lucid Chart. It was beneficial for me to plan the project like this as it allowed me to gain an understanding of what functions were required for the game and at what stages and how the different elements of the game would interact.
 
-### Title and Introduction Section
-- When the user enters the site they are greeted with a very simple page welcoming them to the Shop. 
-- The welcome text was created using Pyfiglet which takes ASCII text and renders it into ASCII art fonts. 
+It also allowed me to identify the different Objects I would need to implement. I was keen to use the principles of Object Oriented Programming in this application.
 
-![Welcome Screen](docs/readme_images/welcome_screen.png)
-
-- There is strong data validation on the username input. The user must enter a username consisting of numbers or letters. They cannot just enter a blank space. If they do not enter valid data, an error message will appear in red saying "Username must contain letters or numbers." and they will be asked to input their name again.
-
-![Username Validation](docs/readme_images/username_validation.png)
-
-### Options menu
-- When the user enters their name the computer will welcome them to the game and repeat their name back to them. 
-- They will be asked if they would like to play or read the instructions by inputting "P" or "I".
-
-![User Menu](docs/readme_images/user_menu.png)
-
-- It doesn't matter if their input is lower or upper case. The computer can handle both inputs by using the inbuilt function, lower().
-- If the user does not input a "P", "p", "I" or an "i" they will get an error message asking them to input a valid option.
-
-![User Menu](docs/readme_images/menu_input_error.png)
-
-### Instructions
-- If the user keys in "I" and presses enter they will be shown the game instructions. 
-- The instructions are surrounded by a scroll-like border to make them clear and easy to read and to add an element of fun. 
-- The game will begin immediately below the instructions.
-
-![User Menu](docs/readme_images/instructions.png)
-
-### Game Features
-- The user is informed that they have 6 chances and they are asked to enter a 5 letter guess. 
-
-![Play Game](docs/readme_images/play_game.png)
-
-### Guess Input Validation and Error Handling
-- The following input validation is carried out on the user guess:
-  - The guess must be 5 characters long.
-  - The guess must be all letters.
-  - The guess must be an actual word in the Oxford English Dictionary. This validation is done using the Oxford dictionary API. 
-- If the user input is not valid, the user will be given feedback on the error and will be asked to input their guess again.
-
-![Guess Validation](docs/readme_images/guess_validation.png)
-
-### Oxford Dictionary API
-- The [Oxford Dictionaries API](https://developer.oxforddictionaries.com/) offers access to Oxford's dictionary content.  
-- When I created an account I was given a unique App ID and App Key. These are then passed as authentication headers for each API request.
-- Due to the sensitive nature of this data, it has been added to the env.py file in the .gitignore to ensure it is not pushed to my Github repository. The App ID and App Key also had to be added to the Config Vars on Heroku to ensure they could be accessed when running the game.
-- When the user inputs a guess - the API request returns a HTTP status code. If the code returned is 404, that means that the word was not found and therefore is not a valid word.
-- If the API returns a 404 status code, an error message is printed telling the user that the input is not an actual word per the Oxford dictionary and prompts them to try again (see screen print above).
-- If the API returns Code 200 "Success" the guess is accepted and the game continues.
-
-### Guess Feedback
-- Once a player has input a valid guess their guess is printed back to them in the centre of the screen. 
-- A colour background is applied to each letter in their guess to show them how close each letter is to the answer (as detailed in the game instructions).
-- Black is used as the font colour to ensure good readability against the coloured background. 
-- Each time a user inputs a guess, their previous guess along with the new guess are printed out to give the appearance of a list. This also helps the user to see which letters they have already used and whether they were correct or not. 
-- After each guess the user is informed how many chances they have left to guess. 
-
-![Guess Feedback 1](docs/readme_images/guess_one.png)
-
-![Guess Feedback 3](docs/readme_images/guess_three.png)
-
-### Game Lost
-- If the player uses all their chances without getting the correct answer the game over message appears and the user is informed of the correct answer.
-- The Game Over menu is shown.
-
-![You Lose](docs/readme_images/gameover.png)
-
-### Game Win
-- If the player enters the correct answer the "You Win" message appears.
-
-![You Win](docs/readme_images/you_win.png)
-- If the user wins, they are informed that their score is being added to the leaderboard and that the leaderboard is updated. 
-
-![Leaderboard Update](docs/readme_images/leaderboard_update.png)
-- The Game Over menu is shown.
-
-### Game Over Menu
-- The Game Over menu consists of three options; Play Again, Leaderboard and Quit. 
-- It doesn't matter if their input is lower or upper case. The computer can handle both inputs. 
-- If the user does not input one of the options they will get an error message asking them to input a valid option.
-
-![Gameover Menu](docs/readme_images/gameover_menu.png)
-
-- If the user chooses to quit, a goodbye message appears and the game is ended using the `exit()` method.
-
-![Goodbye](docs/readme_images/goodbye.png)
-
-- If the user decides to play again, the terminal is cleared using the `os.system('clear')` method and the user is taken back to the game introduction to start again.
-
-### Leaderboard
-- The Leaderboard feature was created using Google Sheets. The spreadsheet is accessed by the game through the Google Drive and Google Sheets APIs on the Google Cloud Platform.
-
-![Google Sheet](docs/readme_images/google_sheet.png)
-
-- Credentials were generated and provided to allow access from the project to Google Sheets. These were added to the cred.json in the .gitignore file to ensure they weren't pushed to my Github repository. They also had to be added to the Config Vars on Heroku to ensure they could be accessed when running the game. 
-- The Leaderboard displays the top ten scores. The scores are sorted first by date and then by the number of attempts. This is to entice the user to return each day to play so they can beat the top score for that particular day. 
-- In order to sort the data from the leaderboard and also to get it into a presentable format, I used Pandas which is a data analysis and manipulation tool. It has a number of inbuilt methods for sorting data.
-
-![Leaderboard](docs/readme_images/leaderboard.png)
-
-### Future Features
-- The user can determine how long they want the word to be (3/4/5/6 letters)
-- The definition of the word is displayed at the end of the game further utilising the Oxford Dictionary API.
-
-## Data Model
-I used principles of **Object-Oriented Programming** throughout this project. The Word-Py game consists of three classes:
-
-- Game
-- WordChecker
-- OxfordDictAPI
-
-The `Game` object is responsible for controlling the flow of the game. It handles things like taking the user input and presenting data back to the user. It contains methods for the general running of the game such as displaying the introduction, displaying user options, taking user guesses, displaying guesses, updating the leader board and displaying the leader board.
-
-The `WordChecker` object is responsible for all actions related to checking the user-provided "guess" input against the generated "answer". This includes validating the input, handling any errors and building the colour-coded response which is returned to the `Game` instance.
-
-The `OxfordDictAPI` object communicates with the [Oxford Dictionaries API](https://developer.oxforddictionaries.com/). This class gets the API credentials from the env.py file and sends a request against this API to ensure the user-provided guess is a valid English word (it exists in the Oxford English Dictionary).
-
-When the game is first run, an initial method is used to retrieve an “answer” word from a text file. This word is then passed as a parameter when creating the `WordChecker` instance. This `WordChecker` instance is then passed as a parameter to the `Game` instance.
-
-The `Game` class then renders the introduction screen and prompts the user for their first guess. User input is passed to `WordChecker` in which it’s validated and then used to return the colour-coded letters to the user via `Game`. `Game` will continue to ask the user for guesses using a while loop until the word has been correctly identified, or the max number of guesses are used.
-
-This modular approach to object definition meant that all of the functionality for running the game, checking the user guess and communicating with the Oxford API were all self-contained within their own classes. This made it easier to develop and also much easier to troubleshoot when things didn't work as initially expected.
 
 ## Testing
 
