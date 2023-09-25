@@ -8,15 +8,15 @@ from google.oauth2.service_account import Credentials
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
+    "https://www.googleapis.com/auth/drive",
 ]
 
 try:
-    CREDS = Credentials.from_service_account_file('creds.json')
+    CREDS = Credentials.from_service_account_file("creds.json")
     SCOPED_CREDS = CREDS.with_scopes(SCOPE)
     GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-    SHEET = GSPREAD_CLIENT.open('products')
-    productsheet = SHEET.worksheet('productsheet')
+    SHEET = GSPREAD_CLIENT.open("products")
+    productsheet = SHEET.worksheet("productsheet")
     all_products = productsheet.get_all_values()
 except Exception as e:
     print("Error: Unable to access Google Sheets:", str(e))
@@ -25,6 +25,7 @@ print(all_products)
 
 
 # Define a class to encapsulate functionality
+
 
 class InventorySystem:
     def __init__(self, all_products):
@@ -36,13 +37,16 @@ class InventorySystem:
             print("No products available.")
         else:
             for index, item in enumerate(self.all_products, start=1):
-                print("{0}\t{1}\t{2}\t\t{3}".format(index, item[1], item[2], item[3]))
+                print("{0}\t{1}\t{2}\t\t{3}".format(
+                     index, item[1], item[2], item[3]))
 
     def banner(self):
         print("*************************************")
-        print(pyfiglet.figlet_format(
-            "WELCOME TO MOBILE SHOP", justify="center", width=80))
-    
+        print(
+            pyfiglet.figlet_format(
+                "WELCOME TO MOBILE SHOP", justify="center", width=80)
+        )
+
         print("*************************************")
         print("\t1.Show All Products")
         print("\t2.Buy Product")
@@ -63,7 +67,7 @@ class InventorySystem:
         if username == "Admin" and password == "password":
             prod = []
             self.add_product(prod)
-            productsheet = SHEET.worksheet('productsheet')
+            productsheet = SHEET.worksheet("productsheet")
             productsheet.append_row(prod)  # Append the new product data
             print("Data added to the sheets")
         else:
@@ -77,14 +81,20 @@ class InventorySystem:
                 print("***********************************************")
                 print("Order Summary\tDate:{}".format(str(datetime.now())))
                 print("Customer Name: {}".format(name))
-                print("Product Name: {}".format(item[1]))  # Display the product name (item[1])
-                print("Price: {}".format(item[3]))  # Display the product price (item[3])
+                print(
+                    "Product Name: {}".format(item[1])
+                )  # Display the product name (item[1])
+                print(
+                    "Price: {}".format(item[3])
+                )  # Display the product price (item[3])
                 print("***********************************************")
-                print("\t\tTotal Bill Amount: {}".format(item[3]))  # Use item[3] for price
+                print(
+                    "\t\tTotal Bill Amount: {}".format(item[3])
+                )  # Use item[3] for price
                 break  # Exit the loop once the product is found
 
     def generate_bill(self, prod_id, name):
-        item = None   # Initialize item as NonE
+        item = None  # Initialize item as NonE
         for product in self.all_products:
             if product[0] == prod_id:
                 item = product
@@ -92,21 +102,31 @@ class InventorySystem:
 
         if item:
             # Remove the '$' and ',' characters from the price string
-            price_str = item[3].replace('$', '').replace(',', '')
-            price = float(price_str)  # Convert the modified price string to a float
+            price_str = item[3].replace("$", "").replace(",", "")
+            price = float(
+                price_str)  # Convert the modified price string to a float
             quantity = 1  # Assuming the quantity is 1 for a single product
             total_cost = price * quantity
             print("***********************************************")
             print("\t\tClix Mobiles Shop")
             print("***********************************************")
-            print("Bill:{} \tDate:{}".format(int(random.random() * 100000), str(datetime.now())))
+            print(
+                "Bill:{} \tDate:{}".format(
+                    int(random.random() * 100000), str(datetime.now())
+                )
+            )
             print("Customer Name: {}".format(name))
             print("Product Name: {}".format(item[1]))
-            print("Price per Unit: ${}".format(price))  # Display the price with '$'
+            print("Price per Unit: ${}".format(
+                 price))  # Display the price with '$'
             print("Quantity: {}".format(quantity))
-            print("Total Cost: ${}".format(total_cost))  # Display the total cost with '$'
+            print(
+                "Total Cost: ${}".format(total_cost)
+            )  # Display the total cost with '$'
             print("***********************************************")
-            print("\t\tTotal Bill Amount: ${}".format(total_cost))  # Display the total bill with '$'
+            print(
+                "\t\tTotal Bill Amount: ${}".format(total_cost)
+            )  # Display the total bill with '$'
         else:
             print("Product not found with the given ID")
 
@@ -120,7 +140,7 @@ while choice != 4:
     choice_input = input("Enter your choice: ")
     try:
         choice = int(choice_input)
-        
+
         if choice == 1:
             inventory_system.display_all()
             input("Press Enter to continue...")
@@ -131,10 +151,14 @@ while choice != 4:
             # Adjust prod_id to match the list index (subtract 1)
             prod_id -= 1
             if 0 <= prod_id < len(inventory_system.all_products):
-                inventory_system.order_summary(inventory_system.all_products[prod_id][0], name)  # Pass the product ID as an argument
+                inventory_system.order_summary(
+                    inventory_system.all_products[prod_id][0], name
+                )  # Pass the product ID as an argument
                 cnf = input("Confirm the Order (Y/N)")
-                if cnf == 'Y':
-                    inventory_system.generate_bill(inventory_system.all_products[prod_id][0], name)  # Pass the product ID as an argument
+                if cnf == "Y":
+                    inventory_system.generate_bill(
+                        inventory_system.all_products[prod_id][0], name
+                    )  # Pass the product ID as an argument
                     print("Thanks For shopping with Us")
             else:
                 print("Product not found with the given ID")
