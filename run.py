@@ -124,13 +124,13 @@ class InventorySystem:
         print("***************************************************************************")
         print(pyfiglet.figlet_format(
             "WELCOME TO ELECTRONICS WORLD", justify="center", width=80))
-        print("*************************************************************************")
+        print("***************************************************************************")
         print("\t1.Show All Products")
         print("\t2.Buy a Product")
         print("\t3.Add Products")
         print("\t4.Remove Products")
         print("\t5.Exit")
-        print("*************************************************************************")
+        print("***************************************************************************")
 
     def order_summary(self, prod_id, name):
         for item in self.all_products[1:]:
@@ -197,11 +197,12 @@ while choice != 5:
         if choice == 1:
             print("\n")
             inventory_system.display_all()
-            input("\n\nPress Enter to continue...\n")
+            input("\n\nPress Any key to continue...\n")
         elif choice == 2:
             prod_id = input("Enter the Product ID:\n")
-            name = input("Customer Name:\n")
+
             if prod_id.isdigit() and 1 <= int(prod_id) < len(inventory_system.all_products):
+                name = input("Customer Name:\n")
                 prod_id = int(prod_id)
                 selected_product = inventory_system.all_products[prod_id]
                 if int(selected_product[2]) <= 0:  # Check for product quantity
@@ -215,17 +216,18 @@ while choice != 5:
                     print("\t\t\tThanks For shopping with Us\n")
                     print(
                         "***************************************************************************")
-                    input("\n\nPress Enter to continue...\n")
+                    input("\n\nPress Any key to continue...\n")
                 else:
                     print('Order cancelled..')
             else:
                 print("Product not found with the given ID\n")
+                input("\n\nPress Any key to continue...\n")
         elif choice == 3:
             inventory_system.admin_login('add')
-            input("\n\nPress Enter to continue...\n")
+            input("\n\nPress Any key to continue...\n")
         elif choice == 4:
             inventory_system.admin_login('remove')
-            input("\n\nPress Enter to continue...\n")
+            input("\n\nPress Any key to continue...\n")
         elif choice == 5:
             welcome_text = pyfiglet.figlet_format(" GOOD BYE!!! ")
             print(welcome_text)
