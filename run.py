@@ -82,7 +82,7 @@ class InventorySystem:
                 productsheet.delete_rows(index + 1)
 
                 print("Product with ID {}, Name ({}) removed successfully."
-                      .format(int(prod_id), item[1]))  
+                      .format(int(prod_id), item[1]))
                 break
         else:
             return False
@@ -119,7 +119,7 @@ class InventorySystem:
             )
             print(format_string.format(*headers, width=max_widths))
             print(
-                "------------------------------------------------------------")
+                "----------------------------------------------------------")
             for index, item in enumerate(self.all_products, start=1):
                 if index == 1:
                     continue
@@ -130,54 +130,33 @@ class InventorySystem:
                 )
 
     def banner(self):
-        print(
-            "***********************************\
-            ****************************************"
-        )
+        print("***********************************************************")
         print(
             pyfiglet.figlet_format(
                 "WELCOME TO ELECTRONICS WORLD", justify="center", width=80
             )
         )
-        print(
-            "******************************************\
-            *********************************"
-        )
+        print("***********************************************************")
         print("\t1.Show All Products")
         print("\t2.Buy a Product")
         print("\t3.Add Products")
         print("\t4.Remove Products")
         print("\t5.Exit")
-        print(
-            "********************************************\
-            *******************************"
-        )
+        print("***********************************************************")
 
     def order_summary(self, prod_id, name):
         for item in self.all_products[1:]:
             if item[0] == prod_id:
-                print(
-                    "*****************************************\
-                    **********************************"
-                )
+                print("******************************************************")
                 print("\t\t\tElectronics World")
-                print(
-                    "******************************************\
-                    *********************************"
-                )
+                print("******************************************************")
                 print("Order Summary\tDate:{}".format(str(datetime.now())))
                 print("Customer Name: {}".format(name))
                 print("Product Name: {}".format(item[1]))
                 print("Price: {}".format(item[3]))
-                print(
-                    "*****************************************\
-                    **********************************"
-                )
+                print("******************************************************")
                 print("\t\t\tTotal Bill Amount: {}".format(item[3]))
-                print(
-                    "********************************************\
-                    *******************************"
-                )
+                print("******************************************************")
                 break
 
     def generate_bill(self, prod_id, name):
@@ -195,15 +174,9 @@ class InventorySystem:
             price = float(price_str)
             quantity = 1
             total_cost = price * quantity
-            print(
-                "********************************************\
-                *******************************"
-            )
+            print("******************************************************")
             print("\t\t\tElectronics World")
-            print(
-                "*****************************************\
-                **********************************"
-            )
+            print("******************************************************")
             print(
                 "Bill:{} \tDate:{}".format(
                     int(random.random() * 100000), str(datetime.now())
@@ -214,10 +187,7 @@ class InventorySystem:
             print("Price per Unit: ${}".format(price))
             print("Quantity: {}".format(quantity))
             print("Total Cost: ${}".format(total_cost))
-            print(
-                  "*********************************\
-                  ******************************************"
-            )
+            print("******************************************************")
             print("\t\t\tTotal Bill Amount: ${}\n".format(total_cost))
         else:
             print("Product not found with the given ID")
@@ -255,10 +225,7 @@ while choice != 5:
                 if cnf.lower() == "y":
                     inventory_system.generate_bill(prod_id, name)
                     print("\t\t\tThanks For shopping with Us\n")
-                    print(
-                        "**************************************** \
-                        ***********************************"
-                    )
+                    print("**************************************************")
                     input("\n\nPress Any key to continue...\n")
                 else:
                     print("Order cancelled..")
