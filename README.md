@@ -8,7 +8,7 @@ This inventory system manages product data, provides a user-friendly interface, 
 ![Static Badge](https://img.shields.io/badge/Contributors-1-blue)
 ![Static Badge](https://img.shields.io/badge/Languages-1-greens)
 
-## How to Play
+## How Does It Work
  # Display All Products (Option 1):
   - When you run the program, you'll see a menu with options.
   - Choose option 1 to display all available products. It will show a list of products with their names, stock availability, and prices.
@@ -73,18 +73,16 @@ This inventory system manages product data, provides a user-friendly interface, 
 
 
 ## Flow Chart
+ - In order to visualise the flow of steps required in the game, I created a flow chart using Lucid Chart. It was beneficial  for me to plan the project like this as it allowed me to gain an understanding of what functions were required for the game and at what stages and how the different elements of the game would interact.
+
+ - It also allowed me to identify the different Objects I would need to implement. I was keen to use the principles of Object Oriented Programming in this application.
 
 <details><summary>Screenshots</summary>
 <img src="images/flowchart.png">
 </details>
 
-In order to visualise the flow of steps required in the game, I created a flow chart using Lucid Chart. It was beneficial for me to plan the project like this as it allowed me to gain an understanding of what functions were required for the game and at what stages and how the different elements of the game would interact.
-
-It also allowed me to identify the different Objects I would need to implement. I was keen to use the principles of Object Oriented Programming in this appl
-ication.
-
 ### Google Sheet
-- The table I provided displays information about various products. Here's an explanation of each column:
+ - The table I provided displays information about various products. Here's an explanation of each column:
  - Product ID: This is a unique identifier for each product. It's a number that distinguishes one product from another.
  - Product Name: This column lists the names of the products. Each product has a different name to identify what it is.
  - In Stock Quantity: This column indicates how many units of each product are currently available in stock. It tells you how many of each product you have on hand.
