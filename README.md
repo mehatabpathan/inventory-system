@@ -31,9 +31,20 @@ The live link can be found here - [Inventory-system](https://inventory-system1-f
   - You'll need to enter an admin username and password. The default values are "Admin" and "password."
   - After logging in, you can add new products by entering their name, stock availability, and price.
 
-  <details><summary>Screenshots</summary>
+<details><summary>Screenshots</summary>
 <img src="images/addingproducts.png">
 </details>
+
+ # Remove Product (Admin Login Required, Option 4):
+  - Choose option 3 to add products (requires admin login).
+  - You'll need to enter an admin username and password. The default values are "Admin" and "password."
+  - The removeproduct method allows admins to remove a product from the inventory based on its ID.
+  - It removes the product from both the local list and the Google Sheets document.
+
+<details><summary>Screenshots</summary>
+<img src="images/addingproducts.png">
+</details> 
+
 
  # Exit (Option 4):
   - Choose option 4 to exit the program.
