@@ -2,6 +2,7 @@
 This inventory system manages product data, provides a user-friendly interface, and integrates with Google Sheets for data storage and retrieval. Users can view, purchase, and add products to the inventory system, while admin users have the additional privilege of adding new products.
 
 The live link can be found here - [Inventory-system](https://inventory-system1-f97d13a346ff.herokuapp.com/)
+the git hub repository is here  - [GitHub Repo](https://github.com/mehatabpathan/inventory-system)
 
 ![Static Badge](https://img.shields.io/badge/Last_Commit-September-red)
 ![Static Badge](https://img.shields.io/badge/Contributors-1-blue)
