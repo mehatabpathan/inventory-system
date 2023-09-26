@@ -1,8 +1,8 @@
 # Inventory-System
 This inventory system manages product data, provides a user-friendly interface, and integrates with Google Sheets for data storage and retrieval. Users can view, purchase, and add products to the inventory system, while admin users have the additional privilege of adding new products.
 
-The live link can be found here - [Inventory-system](https://inventory-system1-f97d13a346ff.herokuapp.com/)
-the git hub repository is here  - [GitHub Repo](https://github.com/mehatabpathan/inventory-system)
+- The live link can be found here - [Inventory-system](https://inventory-system1-f97d13a346ff.herokuapp.com/)
+- the git hub repository is here  - [GitHub Repo](https://github.com/mehatabpathan/inventory-system)
 
 ![Static Badge](https://img.shields.io/badge/Last_Commit-September-red)
 ![Static Badge](https://img.shields.io/badge/Contributors-1-blue)
@@ -134,8 +134,6 @@ The python files have all been passed through [PEP8 Online](http://pep8online.co
  ### Bugs
 | **Bug**                                                                                                         | **Fix**                                                                                                                                                       |
 | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Couldn't connect function levels() to the game() function to upload difficulty level across game| Redo whole function levels() with changed whileloop|                                                                                                                    
-| Poor visual presentation of the game   | Introduced colorama and add spacing to the print statements across the game       |
 | Too long lines during code                   | Run and formatted code through black.vercel.app                              |
 | Game worked locally but not on Heroku app                   |  Created new excell sheet with new credentials and repeated process of connecting APIs, googleshet, heroku                           |
                                                                       
