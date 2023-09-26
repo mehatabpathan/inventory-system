@@ -23,7 +23,7 @@ The live link can be found here - [Inventory-system](https://inventory-system1-f
   - If you confirm the order, it will generate a bill for the product.
 
 <details><summary>Screenshots</summary>
-<img src="images/buyproducts.png">
+<img src="images/buyproduct.png">
 </details>
 
  # Add Products (Admin Login Required, Option 3):
@@ -32,7 +32,7 @@ The live link can be found here - [Inventory-system](https://inventory-system1-f
   - After logging in, you can add new products by entering their name, stock availability, and price.
 
 <details><summary>Screenshots</summary>
-<img src="images/addingproducts.png">
+<img src="images/addproduct.png">
 </details>
 
  # Remove Product (Admin Login Required, Option 4):
@@ -42,7 +42,7 @@ The live link can be found here - [Inventory-system](https://inventory-system1-f
   - It removes the product from both the local list and the Google Sheets document.
 
 <details><summary>Screenshots</summary>
-<img src="images/addingproducts.png">
+<img src="images/removeproduct.png">
 </details> 
 
 
@@ -108,7 +108,7 @@ ication.
 | Welcome screen | entering r | it shows invalid data | It works as expected |
 
 <details><summary>Screenshots</summary>
-<img src="images/invalid-input.png">
+<img src="images/invalidinput.png">
 </details>
 
 ### Testing Admin Credientials
@@ -120,7 +120,7 @@ ication.
 | Welcome screen | entering r | it shows incorrect  data | It works as expected |
 
 <details><summary>Screenshots</summary>
-<img src="images/invalid-admin-credientials.png">
+<img src="images/invalidcredientials.png">
 </details>
 
 ### PEP8 Testing
