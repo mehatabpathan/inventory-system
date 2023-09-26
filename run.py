@@ -2,7 +2,6 @@ from datetime import datetime
 import random
 import sys
 import pyfiglet
-from colorama import Fore, init, Style
 import gspread
 from google.oauth2.service_account import Credentials
 
